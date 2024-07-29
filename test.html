@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Buttons</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0e3e7;
+            margin: 0;
+        }
+        .button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.5);
+        }
+        .button span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .button1 {
+            background-color: #f1f3f6;
+        }
+        .button1 span {
+            color: #333;
+        }
+        .button2 {
+            background-color: #f1f3f6;
+            background-image: linear-gradient(45deg, #ff00cc, #3333ff);
+        }
+        .button2 span {
+            color: transparent;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <div class="button button1">
+        <span>+</span>
+    </div>
+    <div class="button button2">
+        <span>+</span>
+    </div>
+</body>
+</html>
