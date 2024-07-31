@@ -90,6 +90,7 @@ plusheure.addEventListener('click',function()
         valeur=1;
     }
     else 
+    if (valeur < 24)
      valeur++;
  if (valeur<10)
  timer1.value="0"+valeur;
@@ -119,6 +120,7 @@ plusminute.addEventListener('click',function()
         valeur=1;
     }
     else 
+    if (valeur < 60)
      valeur++;
  if (valeur<10)
  timer2.value="0"+valeur;
@@ -149,7 +151,8 @@ plusseconde.addEventListener('click',function()
     {
         valeur=1;
     }
-    else 
+    else
+     if (valeur < 60) 
      valeur++;
  if (valeur<10)
  timer3.value="0"+valeur;
@@ -334,6 +337,7 @@ async function settimer() {
             z = 59;
         }
         }
+        if (test2)
         x--;
         if (x >= 0) {
             if (x < 10) timer1.value = "0" + x;
