@@ -1,3 +1,21 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(permission => {
+            console.log('Notification permission:', permission);
+        });
+    }
+});
+function notifyMe(message) {
+    if (Notification.permission === "granted") {
+        new Notification(message);
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                new Notification(message);
+            }
+        });
+    }
+}
 const heure = document.getElementById("heure");
 const minute = document.getElementById("minute");
 const seconde = document.getElementById("seconde");
@@ -25,6 +43,7 @@ const reset = document.getElementById("reset")
 
 reset.addEventListener('click',() =>{
     test=false;reseter();
+    test2=false;
     start.innerText="START";
     start.classList.remove('new');
     start.classList.remove('continue');
@@ -32,9 +51,10 @@ reset.addEventListener('click',() =>{
     
   
 })
+ 
 start.addEventListener('click',() => {
-   
-       if ((start.innerText=="START" || start.innerText=="CONTINUE") && !(timer1.value=="" && timer2.value=="" && timer2.value==""))
+    
+       if ((start.innerText=="START" || start.innerText=="CONTINUE") && !(timer1.value=="" && timer2.value=="" && timer3.value==""))
        {
         settimer();
         start.classList.remove('btn');
@@ -47,7 +67,7 @@ start.addEventListener('click',() => {
       else if (start.innerText=="STOP" )
        { test2=false;
         
-        if ((timer1.value=="" && timer2.value=="" && timer2.value==""))
+        if ((timer1.value=="" && timer2.value=="" && timer3.value==""))
         {
            start.innerText="START";
            start.classList.remove('new');
@@ -300,7 +320,7 @@ function check()
 async function settimer() {
     test = true; test2=true;
 
-    let x = parseInt(timer1.value, 10),
+    let x = parseInt(timer1.value, 10),vide= [0,NaN],
         y = parseInt(timer2.value, 10),
         z = parseInt(timer3.value, 10);
 
@@ -334,16 +354,31 @@ async function settimer() {
                 if (y < 10) timer2.value = "0" + y;
                 else timer2.value = y;
             }
+            if  (test2)
             z = 59;
         }
         }
         if (test2)
         x--;
-        if (x >= 0) {
+        if (x >= 0 && test2) {
             if (x < 10) timer1.value = "0" + x;
             else timer1.value = x;
             y = 59;
             timer2.value = y;
         }
     }
+    if (vide.includes(parseInt(timer1.value,10)) && vide.includes(parseInt(timer2.value,10)) && vide.includes(parseInt(timer3.value,10)) )
+        {
+           start.innerText="START";
+           start.classList.remove('new');
+           start.classList.add('btn');
+           notifyMe("Countdown has ended!");
+           
+           
+        
+        } 
+    
+
 }
+const vide = [0,NaN]
+

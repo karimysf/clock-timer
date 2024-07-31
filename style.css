@@ -207,12 +207,15 @@ input[type="button"]
         height: 40px;
         border-radius: 50%;
         display: flex;
+        text-align: top;
         justify-content: center;
         align-items: center;
-      
+    font-size: 25px;
+        
         box-shadow: 5px 5px 15px rgba(96, 184, 121, 0.1), -5px -5px 15px rgba(93, 206, 224, 0.532);
         
 }
+
 .buttons
 {  display: grid;
     grid-auto-flow: column; /* Ensures items are placed in a single line */
